@@ -20,7 +20,7 @@ echo "...done"
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
-    echo "Making symboliclink of $file to ~"
+    echo "Making symboliclink of $file to ~/.config"
     ln -s $dir/$file ~/.$file
 done
 
@@ -28,5 +28,13 @@ done
 echo "Moving old neovim config from ~/.config to $olddir"
 mv -v ~/.config/nvim/* $olddir
 echo "Creating symbol link to ~"
-ln -s "$dir/nvim/init.vim" ~/.config/nvim/init.vim
+ln -s "$dir/config/nvim/init.vim" ~/.config/nvim/init.vim
 
+echo "Running PlugInstall"
+vim -E -s -u ~/.config/nvim/init.vim + PlugInstall +qall
+
+# move i3 config
+echo "Moving old i3 config from ~/.config to $olddir"
+mv -v ~/.config/i3/* $olddir
+echo "Creating symbol link to ~/.config"
+ln -s "$dir/config/i3/config" ~/.config/i3/config
