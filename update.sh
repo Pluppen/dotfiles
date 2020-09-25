@@ -16,12 +16,17 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
+# move donran theme to .oh-my-zsh themes folder
+echo "Moving donran theme to .oh-my-zsh themes folder"
+cp ./donran.zsh-theme ~/.oh-my-zsh/themes/
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
-    echo "Making symboliclink of $file to ~/.config"
-    ln -s $dir/$file ~/.$file
+    echo "Making symboliclink of $file to ~"
+    ln -s $dir/$file "~/.$file"
+    source $dir/$file
 done
 
 # move neovim config
