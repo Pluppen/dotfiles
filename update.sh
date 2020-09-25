@@ -25,7 +25,7 @@ for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Making symboliclink of $file to ~"
-    ln -s $dir/$file "~/.$file"
+    ln -s $dir/$file ~/.$file
     source $dir/$file
 done
 
