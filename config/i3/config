@@ -154,6 +154,41 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Cool border stuf# Cool border stufff
+set $active  #660000
+set $border  #313A28
+set $dblue  #0066cc
+set $text    #BBC5B2
+set $text2   #8f8f8f
+set $text3   #8faf9f
+set $bright  #A3D572
+set $bright2 #3F5030
+set $bg      #2c2c2e
+#set $bg2     #4c4c4f
+set $bg2     #1e1e1e
+
+set $orange  #FCBF69
+set $blue    #98CBFE
+#set $dblue   #6095C5
+#set $dblue   #707070
+set $ia      #8f8f8f
+set $be      #8faf9f
+set $yw      #ccdc90
+set $gn      #97A824
+set $rd      #e89393
+
+
+# Class                 Border   Backgr.  Text    Indicator
+client.focused           $border  $dblue   $text   $dblue
+client.unfocused         $bg2     $bg2     $text2  $bright2
+client.focused_inactive  $bg2     $bg2     $text3  $bright2
+client.urgent             $rd      $gn       $yw       $active
+
+# GAPZ!
+for_window [class="^.*"] border pixel 4
+gaps inner 12
+gaps outer 1
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

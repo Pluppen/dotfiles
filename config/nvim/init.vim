@@ -9,13 +9,14 @@ match RedundantSpaces /\s\+$/
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
+set nu
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dracula/vim'
+Plug 'digitaltoad/vim-pug'
 
 " Initialize plugin system
 call plug#end()
@@ -27,3 +28,4 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme dracula
+
