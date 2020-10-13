@@ -29,3 +29,5 @@ endif
 syntax enable
 colorscheme dracula
 
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/

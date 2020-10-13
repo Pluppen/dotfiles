@@ -155,9 +155,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Cool border stuf# Cool border stufff
-set $active  #660000
-set $border  #313A28
-set $dblue  #0066cc
+set $active  #30D5C8
+set $border  #30D5C8
+set $dblue   #30D5C8
 set $text    #BBC5B2
 set $text2   #8f8f8f
 set $text3   #8faf9f
