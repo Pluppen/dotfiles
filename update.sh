@@ -38,6 +38,12 @@ ln -s "$dir/config/nvim/init.vim" ~/.config/nvim/init.vim
 echo "Running PlugInstall"
 vim -E -s -u ~/.config/nvim/init.vim + PlugInstall +qall
 
+# move kitty config
+echo "Moving old kitty config from ~/.config to $olddir"
+mv -v ~/.config/kitty/* $olddir
+echo "Creating symbol link to ~/.config"
+ln -s "$dir/config/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+
 # move i3 config
 echo "Moving old i3 config from ~/.config to $olddir"
 mv -v ~/.config/i3/* $olddir
