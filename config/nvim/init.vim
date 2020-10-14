@@ -17,6 +17,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dracula/vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'frazrepo/vim-rainbow'
+Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -29,5 +31,8 @@ endif
 syntax enable
 colorscheme dracula
 
+let g:rainbow_active = 1
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
