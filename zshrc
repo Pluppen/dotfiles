@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/usr/local/bin:$HOME/scripts/:$PATH"
 
 # My own aliases
 alias pizza-site="firefox -new-window https://fantastic4group.gitlab.io/pizza-website/"
