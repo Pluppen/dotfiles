@@ -42,3 +42,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 " Vanilla fuzzy search
 set path+=**
 set wildmenu
+
+" Templating
+nnoremap ,html :-1read $HOME/dotfiles/templates/.skeleton.html<CR>3jwf>a
+nnoremap ,react-component :-1read $HOME/dotfiles/templates/.react-component-template.js<CR>ggvG:s/ComponentName/
