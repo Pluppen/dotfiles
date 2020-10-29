@@ -28,11 +28,17 @@ nnoremap <C-Space> :NERDTreeToggle<CR>
 if (has("termguicolors"))
     set termguicolors
 endif
+
 syntax enable
 colorscheme dracula
 
 let g:rainbow_active = 1
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+
+" Vanilla fuzzy search
+set path+=**
+set wildmenu
