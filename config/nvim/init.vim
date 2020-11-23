@@ -19,6 +19,8 @@ Plug 'dracula/vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'frazrepo/vim-rainbow'
 Plug 'itchyny/lightline.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Initialize plugin system
 call plug#end()
@@ -45,4 +47,4 @@ set wildmenu
 
 " Templating
 nnoremap ,html :-1read $HOME/dotfiles/templates/.skeleton.html<CR>3jwf>a
-nnoremap ,react-component :-1read $HOME/dotfiles/templates/.react-component-template.js<CR>ggvG:s/ComponentName/
+nnoremap ,react :-1read $HOME/dotfiles/templates/.react-component-template.js<CR>ggvG:s/ComponentName/
