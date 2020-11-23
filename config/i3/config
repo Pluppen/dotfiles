@@ -23,6 +23,7 @@ exec_always --no-startup-id exec picom &
 exec_always --no-startup-id exec ~/.resolution.sh
 exec_always --no-startup-id exec ~/.start_polybar.sh &
 exec_always --no-startup-id feh  --bg-fill ~/Downloads/wallpaper.jpg
+exec_always --no-startup-id stretchly
 
 focus_follows_mouse no
 
