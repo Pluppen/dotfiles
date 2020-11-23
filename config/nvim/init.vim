@@ -21,6 +21,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'itchyny/lightline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Initialize plugin system
 call plug#end()
