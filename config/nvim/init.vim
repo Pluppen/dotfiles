@@ -22,6 +22,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'three/yajs.vim'
+Plug 'mxw/vim-jsx'
 
 " Initialize plugin system
 call plug#end()
