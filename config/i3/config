@@ -69,6 +69,8 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
+#bindsym $mod+Shift+l exec i3lock-fancy-rapid 4 pixel
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
