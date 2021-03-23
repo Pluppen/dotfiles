@@ -51,3 +51,15 @@ set wildmenu
 " Templating
 nnoremap ,html :-1read $HOME/dotfiles/templates/.skeleton.html<CR>3jwf>a
 nnoremap ,react :-1read $HOME/dotfiles/templates/.react-component-template.js<CR>ggvG:s/ComponentName/
+
+nnoremap d "_d
+vnoremap d "_d
+nnoremap <CR> :noh<CR><CR>
+
+"hardmode
+noremap <Up>        :echo "No pls"<CR>
+noremap <Down>      :echo "No pls"<CR>
+noremap <Left>      :echo "No pls"<CR>
+noremap <Right>     :echo "No pls"<CR>
+noremap <PageUp>    :echo "No pls"<CR>
+noremap <PageDown>  :echo "No pls"<CR>

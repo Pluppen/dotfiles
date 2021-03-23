@@ -26,8 +26,11 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+dblue = #0066cc
+active_workspace_unfocused_monitor = #ffb52a
+active_workspace_focused_monitor = #30921c
 
-[bar/mybar]
+[bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
@@ -42,23 +45,24 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
+;border-size = 4
 border-color = #00000000
 
 padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 0
 
 font-0 = fixed:pixelsize=15;1
-font-1 = unifont:fontformat=truetype:size=13:antialias=false;0
+font-1 = unifont:fontformat=truetype:size=15:antialias=false;0
 font-2 = siji:pixelsize=15;1
 
 modules-left = i3
-;modules-center = mpd
-modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-
+modules-center = xwindow
+modules-right = filesystem alsa memory cpu wlan eth battery temperature date 
+; xkeyboard
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
@@ -145,7 +149,8 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+;label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.active_workspace_focused_monitor}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -155,7 +160,8 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+;label-visible-underline = ${self.label-focused-underline}
+label-visible-underline= ${colors.active_workspace_unfocused_monitor}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -183,9 +189,15 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
-
+format = <ramp> <label> 
+;<bar>
+; 
+label = %percentage:3%%
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
@@ -260,8 +272,8 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+;date =
+date = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -330,7 +342,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = AC
+adapter = AC0
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>

@@ -20,10 +20,10 @@ font pango:monospace 8
 #font pango:DejaVu Sans Mono 8
 
 exec_always --no-startup-id exec picom &
-exec_always --no-startup-id exec ~/.resolution.sh
+#exec_always --no-startup-id exec ~/.resolution.sh
 exec_always --no-startup-id exec ~/.start_polybar.sh &
 exec_always --no-startup-id feh  --bg-fill ~/Downloads/wallpaper.jpg
-exec_always --no-startup-id stretchly
+#exec_always --no-startup-id stretchly
 
 focus_follows_mouse no
 
@@ -69,7 +69,7 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
-#bindsym $mod+Shift+l exec i3lock-fancy-rapid 4 pixel
+bindsym $mod+Shift+Return exec i3lock-fancy-rapid 4 pixel
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
