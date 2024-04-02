@@ -43,8 +43,7 @@ logger "Running update of system"
 sudo dnf update -qy
 
 logger "Installing kitty"
-curl -sL https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-
+sh -c "$(curl --silent -L https://sw.kovidgoyal.net/kitty/installer.sh)"
 mv ./.config/kitty ~/.config/kitty
 
 logger "Installing zsh"
@@ -53,16 +52,16 @@ sudo dnf install zsh -qy
 mv ./.zshrc ~/.zshrc
 
 logger "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl --silent -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 logger "Installing zsh-syntax-highlightning"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 logger "Installing zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone -q https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 logger "Installing nvm, node, and npm"
-curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
@@ -76,7 +75,7 @@ sudo dnf install dotnet-sdk-8.0 -qy
 
 logger "Installing pwsh"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-curl -s https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/ym.repos.d/microsoft.repo
+curl --silent https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/ym.repos.d/microsoft.repo
 sudo dnf update -qy
 sudo dnf install powershell -qy
 
