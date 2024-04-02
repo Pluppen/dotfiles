@@ -43,13 +43,14 @@ logger "Running update of system"
 sudo dnf update -qy
 
 logger "Installing kitty"
-sh -c "$(curl --silent -L https://sw.kovidgoyal.net/kitty/installer.sh)"
-mv ./.config/kitty ~/.config/kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
+    launch=n
+cp -r ./.config/kitty ~/.config/kitty
 
 logger "Installing zsh"
 sudo dnf install zsh -qy
 
-mv ./.zshrc ~/.zshrc
+cp ./.zshrc ~/.zshrc
 
 logger "Installing oh-my-zsh"
 sh -c "$(curl --silent -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -85,7 +86,7 @@ sudo dnf install -qy azure-cli
 logger "Installing neovim and setting upp config"
 sudo dnf install -qy neovim python3-neovim
 
-mv ./.config/nvim ~/.config/nvim
+cp -r ./.config/nvim ~/.config/nvim
 
 logger "Installing 1password"
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
