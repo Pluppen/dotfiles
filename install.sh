@@ -62,11 +62,11 @@ logger "Installing zsh-autosuggestions"
 git clone -q https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 logger "Installing nvm, node, and npm"
-curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash &>/dev/null
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install --lts
-nvm use --lts
+nvm install --lts &>/dev/null
+nvm use --lts &>/dev/null
 
 logger "Installing python3.8"
 sudo dnf install python3.8 -qy
@@ -89,7 +89,7 @@ sudo dnf install -qy neovim python3-neovim
 cp -r ./.config/nvim ~/.config/nvim
 
 logger "Installing 1password"
-sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc &>/dev/null
 sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
 sudo dnf install 1password -qy
 
