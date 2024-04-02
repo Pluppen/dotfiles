@@ -43,7 +43,7 @@ logger "Running update of system"
 sudo dnf update -qy
 
 logger "Installing kitty"
-curl -s -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+curl -sL https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 mv ./.config/kitty ~/.config/kitty
 
@@ -62,26 +62,26 @@ logger "Installing zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 logger "Installing nvm, node, and npm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
 nvm use --lts
 
 logger "Installing python3.8"
-sudo dnf install python3.8
+sudo dnf install python3.8 -qy
 
 logger "Installing dotnet"
-sudo dnf install dotnet-sdk-8.0
+sudo dnf install dotnet-sdk-8.0 -qy
 
 logger "Installing pwsh"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/ym.repos.d/microsoft.repo
-sudo dnf makecache
+curl -s https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/ym.repos.d/microsoft.repo
+sudo dnf update -qy
 sudo dnf install powershell -qy
 
 logger "Installing az cli"
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo dnf install -qy azure-cli
 
 logger "Installing neovim and setting upp config"
 sudo dnf install -qy neovim python3-neovim
@@ -91,7 +91,7 @@ mv ./.config/nvim ~/.config/nvim
 logger "Installing 1password"
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
 sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
-sudo dnf install 1password
+sudo dnf install 1password -qy
 
 logger "Printing store apps to download"
 echo "You should now install virtmanager"
