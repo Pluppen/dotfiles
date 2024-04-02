@@ -45,6 +45,7 @@ sudo dnf update -qy
 logger "Installing kitty"
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin \
     launch=n
+ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 cp -r ./.config/kitty ~/.config/kitty
 
 logger "Installing zsh"
@@ -53,7 +54,7 @@ sudo dnf install zsh -qy
 cp ./.zshrc ~/.zshrc
 
 logger "Installing oh-my-zsh"
-sh -c "$(curl --silent -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 logger "Installing zsh-syntax-highlightning"
 git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
