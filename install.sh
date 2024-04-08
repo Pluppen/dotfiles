@@ -97,6 +97,10 @@ sudo dnf install 1password -qy
 logger "Installing zoxide"
 sudo dnf install zoxide -qy
 
+logger "Installing video codecs"
+sudo dnf group install Multimedia -qy
+sudo dnf install @multimedia @sound-and-video ffmpeg-libs gstreamer1-plugins-{bad-*,good-*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame* -qy
+
 logger "Printing store apps to download"
 echo "You should now install virtmanager"
 echo "You should now install teams-for-linux"
